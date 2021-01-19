@@ -3,9 +3,11 @@ import random
 from selenium import webdriver
 import time
 from common.Login import login
+from common.IdCardGennerator import IdNumber
 
 
-def main(id_no):
+
+def main():
     chrome_driver = 'C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe'
     driver = webdriver.Chrome(executable_path=chrome_driver)
     # 登录
@@ -37,7 +39,7 @@ def main(id_no):
     driver.find_element_by_xpath('/html/body/div[5]/div/div/div/div[2]/div/div/div/div[1]/div').click()
     time.sleep(1)
     driver.find_element_by_id('name').send_keys('小叶')
-    driver.find_element_by_id('id_no').send_keys(id_no)
+    driver.find_element_by_id('id_no').send_keys(IdNumber.generate_id())
     driver.find_element_by_id('id_valid_date').send_keys('2023-01-31')
     driver.find_element_by_xpath(
         '//*[@id="root"]/div/section/section/main/div/div[2]/div/div/div/div/div/div/div[2]/div/div[2]/form/div[2]/div[1]/div/div[2]/div/div/div/span/div[1]/span/div/div/div/span').click()
@@ -108,5 +110,4 @@ def main(id_no):
 
 
 if __name__ == '__main__':
-    # 输入司机身份证号
-    main(330102199111078237)
+    main()

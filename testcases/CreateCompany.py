@@ -5,7 +5,7 @@ import time
 from common.Login import login
 
 
-def main(broker_phone):
+def main():
     chrome_driver = 'C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe'
     driver = webdriver.Chrome(executable_path=chrome_driver)
     # 登录
@@ -43,8 +43,7 @@ def main(broker_phone):
     driver.find_element_by_id('registered_capital').send_keys('500')
     driver.find_element_by_id('driver_num').send_keys('1000')
     driver.find_element_by_id('car_num').send_keys('5000')
-    driver.find_element_by_xpath(
-        '//*[@id="root"]/div/section/section/main/div/div[2]/div/div/div/div/div/div[3]/button/span').click()
+    driver.find_element_by_xpath('//*[@id="root"]/div/section/section/main/div/div[2]/div/div/div/div/div/div[3]/button/span').click()
     time.sleep(2)
     # 跳转到资质信息填写页面
     driver.find_element_by_id('identifier_code').send_keys('111111111111111')
@@ -53,22 +52,18 @@ def main(broker_phone):
     driver.find_element_by_id('legal_photo').send_keys('10029000001')
     driver.find_element_by_id('email').send_keys('a11@qq.com')
     # 文件上传
-    driver.find_element_by_xpath(
-        '//*[@id="root"]/div/section/section/main/div/div[2]/div/div/div/div/div/div[2]/div/form/div[7]/div[2]/div/div/div/span/div[1]/span/div/div/div').click()
+    driver.find_element_by_css_selector('#root > div > section > section > main > div > div.ant-pro-grid-content > div > div > div > div > div > div.ant-card.steps-content.ant-card-bordered > div > form > div:nth-child(7) > div.ant-col.ant-col-16.ant-form-item-control > div > div > div > span > div.ant-upload.ant-upload-drag.file-uploader > span > div > div > div > span').click()
     time.sleep(3)
     os.system(r"C:\Users\X1\Desktop\file.exe")
     time.sleep(3)
-    driver.find_element_by_xpath(
-        '//*[@id="root"]/div/section/section/main/div/div[2]/div/div/div/div/div/div[2]/div/form/div[8]/div[2]/div/div/div/span/div[1]/span/div/div/div').click()
+    driver.find_element_by_css_selector('#root > div > section > section > main > div > div.ant-pro-grid-content > div > div > div > div > div > div.ant-card.steps-content.ant-card-bordered > div > form > div:nth-child(8) > div.ant-col.ant-col-16.ant-form-item-control > div > div > div > span > div.ant-upload.ant-upload-drag.file-uploader > span > div > div > div > span').click()
     time.sleep(3)
     os.system(r"C:\Users\X1\Desktop\file.exe")
-    driver.find_element_by_xpath(
-        '//*[@id="root"]/div/section/section/main/div/div[2]/div/div/div/div/div/div[2]/div/form/div[9]/div[2]/div/div/div/span/div[1]/span/div/div/div/div/div[1]').click()
+    driver.find_element_by_css_selector('#root > div > section > section > main > div > div.ant-pro-grid-content > div > div > div > div > div > div.ant-card.steps-content.ant-card-bordered > div > form > div:nth-child(9) > div.ant-col.ant-col-16.ant-form-item-control > div > div > div > span > div.ant-upload.ant-upload-drag.file-uploader > span > div > div > div > span').click()
     time.sleep(3)
     os.system(r"C:\Users\X1\Desktop\file.exe")
     time.sleep(2)
-    driver.find_element_by_xpath(
-        '//*[@id="root"]/div/section/section/main/div/div[2]/div/div/div/div/div/div[3]/button[2]/span').click()
+    driver.find_element_by_css_selector('#root > div > section > section > main > div > div.ant-pro-grid-content > div > div > div > div > div > div.steps-action > button.ant-btn.ant-btn-primary > span').click()
     # 跳转到银行卡信息填写页面
     time.sleep(2)
     driver.find_element_by_id('legal_area').click()
@@ -77,13 +72,13 @@ def main(broker_phone):
     time.sleep(1)
     driver.find_element_by_id('bank_name').send_keys('中国工商银行')
     driver.find_element_by_id('account_opening_branch').send_keys('车公庙支行')
-    driver.find_element_by_id('bank_code').send_keys('6228000000158437')
+    driver.find_element_by_id('bank_code').send_keys('00028000000158437')
     driver.find_element_by_xpath(
         '//*[@id="root"]/div/section/section/main/div/div[2]/div/div/div/div/div/div[3]/button[2]/span').click()
     # 跳转到签约信息页面
     time.sleep(3)
     driver.find_element_by_id('broker_name').send_keys('小叶')
-    driver.find_element_by_id('broker_phone').send_keys(broker_phone)
+    driver.find_element_by_id('broker_phone').send_keys(str(random.randint(10020100001, 10020999999)))
     driver.find_element_by_id('broker_idno').send_keys('11010119940504393X')
     driver.find_element_by_id('broker_email').send_keys('abh' + str(random.randint(0, 1000)) + '@qq.com')
     driver.find_element_by_id('max_acount_num').send_keys('50')
@@ -100,4 +95,4 @@ def main(broker_phone):
 
 if __name__ == '__main__':
     # 输入对接人手机号
-    main(10028100002)
+    main()
